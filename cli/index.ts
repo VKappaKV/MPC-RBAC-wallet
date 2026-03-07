@@ -242,6 +242,15 @@ async function main() {
         }
         
         case "2": {
+          const object = await suiClient.getObject({
+            id: "0x4cd0e9e50719f9338b55ef119ee7825846fe800005e9f9bb2957662e33b43e31",
+            options:{
+              showContent: true
+            }
+          });
+
+          console.log(object.data?.content.fields);
+
           const chain = await askChain();
           await addPresignature(chain);
           break;
@@ -307,7 +316,7 @@ async function main() {
         case "5": {
           const currentUsersId = (await getWallet()).users.id;
           const currentUsers = await getCurrentUsers(currentUsersId);
-
+          console.log(currentUsers)
 
           let users: string[] = [];
           while(true){

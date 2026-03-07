@@ -224,7 +224,7 @@ module rbac_wallet::rbac{
         ctx: &mut TxContext
         ){
 
-        assert!(&self.active_recovery == option::none(), errors::active_recovery!());
+        assert!(self.active_recovery.is_none(), errors::active_recovery!());
         
         let sender = ctx.sender();
 
@@ -288,7 +288,7 @@ module rbac_wallet::rbac{
         ctx: &mut TxContext
         ){
 
-        assert!(&self.active_recovery == option::none(), errors::active_recovery!());
+        assert!(self.active_recovery.is_none(), errors::active_recovery!());
 
         let sender = ctx.sender();
         assert!(self.users.contains(sender), errors::no_user_found!());
@@ -340,7 +340,7 @@ module rbac_wallet::rbac{
         ctx: &mut TxContext
         ){
 
-        assert!(&self.active_recovery == option::none(), errors::active_recovery!());
+        assert!(self.active_recovery .is_none(), errors::active_recovery!());
         
         let sender = ctx.sender();
         assert!(self.users.contains(sender), errors::no_user_found!());

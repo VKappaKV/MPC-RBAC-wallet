@@ -315,6 +315,7 @@ export async function initRecovery(new_admin: string){
     const userAddr = userKeypair.toSuiAddress();
 
     const transaction = new Transaction;
+    transaction.setGasBudget(5_000_000);
 
     transaction.moveCall({
         package: ENV.PACKAGE_ADDRESS,
