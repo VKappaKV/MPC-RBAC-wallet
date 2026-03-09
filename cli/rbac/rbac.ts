@@ -681,7 +681,7 @@ export async function emergency_fallback(new_state: boolean){
         digest: result.digest
     });
     
-    //TODO ADD EVENT
+    console.log(result.events);
 
 
 }
